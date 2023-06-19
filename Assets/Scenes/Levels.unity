@@ -344,6 +344,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _button: {fileID: 344859510}
   _sceneName: Lvl1
+  _sceneM: {fileID: 8095793934469357184, guid: 974be64699518aa4fb4011c9ee1b9dc4, type: 3}
 --- !u!1 &499715862
 GameObject:
   m_ObjectHideFlags: 0
@@ -398,6 +399,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _button: {fileID: 499715865}
   _sceneName: Main
+  _sceneM: {fileID: 8095793934469357184, guid: 974be64699518aa4fb4011c9ee1b9dc4, type: 3}
 --- !u!114 &499715865
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -535,6 +537,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _button: {fileID: 523007136}
   _sceneName: Lvl2
+  _sceneM: {fileID: 8095793934469357184, guid: 974be64699518aa4fb4011c9ee1b9dc4, type: 3}
 --- !u!114 &523007136
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -672,6 +675,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _button: {fileID: 829968801}
   _sceneName: Lvl3
+  _sceneM: {fileID: 8095793934469357184, guid: 974be64699518aa4fb4011c9ee1b9dc4, type: 3}
 --- !u!114 &829968801
 MonoBehaviour:
   m_ObjectHideFlags: 0

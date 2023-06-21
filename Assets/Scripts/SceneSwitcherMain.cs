@@ -7,7 +7,6 @@ public class SceneSwitcherMain : MonoBehaviour
 {
     [SerializeField] private Button _button;
     [SerializeField] private string _sceneName;
-    [SerializeField] private string _buttonText;
     [SerializeField] private TextMeshProUGUI _text;
     internal string _firstTime;
 

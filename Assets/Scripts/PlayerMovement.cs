@@ -1,5 +1,7 @@
 using UnityEngine;
 using System.Collections;
+using TMPro;
+using System;
 
 [RequireComponent(typeof(Rigidbody))]
 public class PlayerMovement : MonoBehaviour
@@ -7,6 +9,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private GameObject _player;
     [SerializeField] private Rigidbody _rb;
     [SerializeField] private Animator _animator;
+    [SerializeField] private TextMeshProUGUI _txtSpeed;
+    [SerializeField] private TextMeshProUGUI _txtJump;
     [SerializeField] private int _speed;
     [SerializeField] private int _jumpSpeed;
     [SerializeField] private bool _jumping;
@@ -17,7 +21,9 @@ public class PlayerMovement : MonoBehaviour
     private void Start()
     {
         _speed = 3;
-        _jumpSpeed = 4; 
+        _jumpSpeed = 4;
+        _txtSpeed.text = Convert.ToString(_speed);
+        _txtJump.text = Convert.ToString(_jumpSpeed);
     }
     void Update()
     {
@@ -79,10 +85,12 @@ public class PlayerMovement : MonoBehaviour
     public void AddSpeed (int num)
     {
         _speed += num;
+        _txtSpeed.text = Convert.ToString(_speed);
     }
 
     public void AddJump (int num)
     {
         _jumpSpeed += num;
+        _txtJump.text = Convert.ToString(_jumpSpeed);
     }
 } 

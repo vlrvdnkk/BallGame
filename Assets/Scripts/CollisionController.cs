@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class CollisionController : MonoBehaviour
@@ -10,6 +11,7 @@ public class CollisionController : MonoBehaviour
     [SerializeField] private GameObject _panelTutorial;
     [SerializeField] private GameObject _panelWin;
     [SerializeField] private TextMeshProUGUI _text;
+    [SerializeField] private Image _image;
     [SerializeField] private Animator _animator;
     [SerializeField] private Animator _animatorFade;
     [SerializeField] private PlayerMovement _movement;
@@ -47,7 +49,7 @@ public class CollisionController : MonoBehaviour
         else if (collis.gameObject.name == "bench" & PlayerPrefs.GetInt("_count") == 1)
         {
             _text.text = "А вот и первый подарочек - кастрюлька! А что в ней - неважно, главное, съедобное! " +
-                "Еда повышает твою скорость на одну воробьиную силу. Обычный воробушек бегает с тройной воробьиной силой. Подбирай скорее!";
+                "Еда повышает твою скорость на одну кроличью силу. Обычный воробушек бегает с тройной кроличьей силой. Подбирай скорее!";
             AllStop();
         }
         else if (collis.gameObject.name == "bridgeWoodenRails" & PlayerPrefs.GetInt("_count") == 2)
@@ -59,8 +61,8 @@ public class CollisionController : MonoBehaviour
         }
         else if (collis.gameObject.name == "bridgeWooden01" & PlayerPrefs.GetInt("_count") == 3)
         {
-            _text.text = "Ура, это бассейн с холодным пенным! Напитки повышают высоту твоего прыжка на одну воробьиную силу. " +
-                "Обычный воробушек прыгает с четверной воробьиной силой. Поплавай с удовольствием!";
+            _text.text = "Ура, это бассейн с холодным пенным! Напитки повышают высоту твоего прыжка на одну лягушачью силу. " +
+                "Обычный воробушек прыгает с четверной лягушачьей силой. Поплавай с удовольствием!";
             AllStop();
         }
         else if (collis.gameObject.name == "wallEarth01" & PlayerPrefs.GetInt("_count") == 4)
@@ -84,10 +86,44 @@ public class CollisionController : MonoBehaviour
                 _movement.enabled = false;
                 _animator.SetInteger("state", 3);
                 _panelWin.SetActive(true);
+                if (_uiController.CheckLvl() > 0) { }
+                else
+                    _uiController.AddLevel();
             }
             else
             {
-
+                _image.color = new Color(255, 0, 0);
+                StartCoroutine(Timer());
+            }
+        }
+        else if (collid.gameObject.name == "flag1")
+        {
+            if (_uiController.CheckKey())
+            {
+                _movement.enabled = false;
+                _animator.SetInteger("state", 3);
+                _panelWin.SetActive(true);
+                if (_uiController.CheckLvl() == 1)
+                    _uiController.AddLevel();
+            }
+            else
+            {
+                _image.color = new Color(255, 0, 0);
+                StartCoroutine(Timer());
+            }
+        }
+        else if (collid.gameObject.name == "flag2")
+        {
+            if (_uiController.CheckKey())
+            {
+                _movement.enabled = false;
+                _animator.SetInteger("state", 3);
+                _panelWin.SetActive(true);
+            }
+            else
+            {
+                _image.color = new Color(255, 0, 0);
+                StartCoroutine(Timer());
             }
         }
         else if (collid.gameObject.name == "Plane")
@@ -129,5 +165,11 @@ public class CollisionController : MonoBehaviour
         _count++;
         PlayerPrefs.SetInt("_count", _count);
         PlayerPrefs.Save();
+    }
+
+    IEnumerator Timer()
+    {
+        yield return new WaitForSeconds(1);
+        _image.color = new Color(0, 0, 0);
     }
 }

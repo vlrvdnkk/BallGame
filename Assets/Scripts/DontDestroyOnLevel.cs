@@ -2,12 +2,12 @@ using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class DontDestroy : MonoBehaviour
+public class DontDestroyOnLevel : MonoBehaviour
 {
     
     void Update()
     {
-        if (SceneManager.GetActiveScene().name != "Main" & SceneManager.GetActiveScene().name != "Levels")
+        if (SceneManager.GetActiveScene().name == "Main" & SceneManager.GetActiveScene().name == "Levels")
             this.gameObject.GetComponent<AudioSource>().enabled = false;
         else
             this.gameObject.GetComponent<AudioSource>().enabled = true;

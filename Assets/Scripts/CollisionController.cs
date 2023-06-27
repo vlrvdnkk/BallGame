@@ -1,10 +1,8 @@
 using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class CollisionController : MonoBehaviour
 {
@@ -40,7 +38,7 @@ public class CollisionController : MonoBehaviour
         else if (collis.gameObject.name == "bridgeWooden" & PlayerPrefs.GetInt("_count") == 0)
         {
             _text.text = "Воробушки - это умные птицы, но им очень тяжело выживать на улице. " +
-                "Сейчас перед собой ты увидел Васяна - гениального воробушка и наследника Чирик Гейтса" +
+                "Сейчас перед собой ты увидел гениального воробушка и наследника Чирик Гейтса" +
                 " в пятом поколении. Недавно хулиганы подбили ему крылышко, поэтому за едой ему придется добираться непростым путём, " +
                 "прыгая по различным предметам. Впрочем, ты ему в этом и поможешь. Управление на WASD или стрелочками, прыжок на SPACE. Удачи!";
             AllStop();
@@ -68,7 +66,25 @@ public class CollisionController : MonoBehaviour
         else if (collis.gameObject.name == "wallEarth01" & PlayerPrefs.GetInt("_count") == 4)
         {
             _text.text = "Ого, впереди чекпоинт! Он приведет тебя на следующий уровень! " +
-                "На этом мы с тобой не прощаемся ;) Надеюсь, ты поможешь Васяну пройти все испытания, удачи!";
+                "На этом мы с тобой не прощаемся ;) Надеюсь, ты поможешь воробушку пройти все испытания, удачи!";
+            AllStop();
+        }
+        else if (collis.gameObject.name == "diceA" & PlayerPrefs.GetInt("_count") == 5)
+        {
+            _text.text = "Осторожно, впереди тонкая платформа, а прямо за ней есть она головоломка. " +
+                "Я думаю, ты и без меня поймешь, что делать. Найди способ перебраться на ту сторону как можно безопаснее!";
+            AllStop();
+        }
+        else if (collis.gameObject.name == "suitCase" & PlayerPrefs.GetInt("_count") == 6)
+        {
+            _text.text = "Впереди опять опасное препятстиве, и снова головоломка. Но тут я " +
+                "тебе подскажу: за вход нужно заплатить. Хотя бы одной монеткой. Наверное, ямка перед решёткой и будет кассой. " +
+                "Попробуй оплатить проход!";
+            AllStop();
+        }
+        else if (collis.gameObject.name == "woodenStart" & PlayerPrefs.GetInt("_count") == 7)
+        {
+            _text.text = "Здесь я тебя оставлю. Ты знаешь всё, что нужно для выживания здесь. Скоро у воробушка заживёт крылышко и он сможет полететь сам. Помоги ему в последний раз, хорошо?";
             AllStop();
         }
     }
